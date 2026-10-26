@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero-home">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="eyebrow-lock"></span> Criptografia + Esteganografia LSB</div>
+    <h1>Esconda mensagens<br>em imagens <span>com segurança</span></h1>
+    <p>O SecretImage 2.0 combina criptografia e esteganografia para proteger as suas mensagens. Apenas quem tiver a chave correcta poderá recuperá-las.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ url_for('hide_page') }}"><span></span> Esconder mensagem</a>
+      <a class="btn btn-outline" href="{{ url_for('extract_page') }}"><span></span> Extrair mensagem</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="circuit c1"></div><div class="circuit c2"></div><div class="circuit c3"></div>
+    <div class="glow-orb"></div>
+    <div class="big-shield"><div class="big-lock"></div></div>
+  </div>
+</section>
+
+<section class="feature-row">
+	<article>
+		<div class="feature-icon"></div>
+		<div>
+			<h3>Criptografia Forte</h3>
+			<p>A sua mensagem é cifrada com algoritmos seguros.</p>
+		</div>
+	</article>
+	<article>
+		<div class="feature-icon"></div>
+		<div>
+			<h3>Esteganografia LSB</h3>
+			<p>A mensagem fica escondida na imagem.</p>
+		</div>
+	</article>
+	<article>
+		<div class="feature-icon"></div>
+		<div>
+			<h3>Acesso com Chave</h3>
+			<p>Somente quem tem a chave pode recuperar a mensagem.</p>
+		</div>
+	</article>
+</section>
+
+<section class="quick-cards">
+	<a href="{{ url_for('hide_page') }}" class="quick-card">
+		<span>01</span>
+		<h3>Proteger mensagem</h3>
+		<p>Escolha uma imagem, escreva a mensagem e gere a imagem protegida.</p>
+	</a>
+	<a href="{{ url_for('extract_page') }}" class="quick-card">
+		<span>02</span>
+		<h3>Recuperar mensagem</h3>
+		<p>Envie a imagem protegida e use a chave correcta para recuperar o conteudo.</p>
+	</a>
+</section>
+{% endblock %}

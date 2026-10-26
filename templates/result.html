@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado | SecretImage 2.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="container result-container">
+    <section class="card">
+        {% if success %}
+            <div class="result-icon">✅</div>
+            <h1>{{ message }}</h1>
+
+            {% if filename %}
+                <p class="muted">
+                    A imagem final foi guardada em PNG para preservar os dados escondidos.
+                </p>
+                <a class="button download" href="{{ url_for('download_file', filename=filename) }}">
+                    ⬇️ Baixar imagem protegida
+                </a>
+            {% endif %}
+
+            {% if extracted_message %}
+                <div class="message-box">
+                    <h2>Mensagem original</h2>
+                    <p>{{ extracted_message }}</p>
+                </div>
+            {% endif %}
+        {% else %}
+            <div class="result-icon">❌</div>
+            <h1>Não foi possível concluir</h1>
+            <p class="error-text">{{ message }}</p>
+        {% endif %}
+
+        <a class="back" href="{{ url_for('index') }}">← Voltar ao SecretImage</a>
+    </section>
+</div>
+</body>
+</html>

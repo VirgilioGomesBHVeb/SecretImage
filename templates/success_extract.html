@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Conteúdo recuperado | SecretImage 2.0{% endblock %}
+{% block content %}
+<section class="result-card recovered-card">
+	<div class="result-symbol success">✓</div>
+	<h1>Conteúdo recuperado!</h1>
+	<p>O conteúdo foi desencriptado e extraído com sucesso.</p>
+
+	<!-- Bloco do Ficheiro de Mídia Extraído (Vídeo, PDF, Imagem, etc.) -->
+	{% if media_filename %}
+		<div class="message-result" style="text-align: center; padding: 25px; margin-bottom: 20px;">
+			<p>Foi detetado e recuperado o ficheiro original:</p>
+			<h3 style="margin: 12px 0; color: #2ecc71;">{{ media_filename }}</h3>
+			<a class="btn btn-success" href="{{ url_for('download_file', filename=media_filename) }}" style="display: inline-block; margin-top: 10px;">
+				⇩ Descarregar {{ media_filename }}
+			</a>
+		</div>
+	{% endif %}
+
+	<!-- Bloco da Mensagem de Texto (se existir) -->
+	{% if extracted_message %}
+		<div class="message-result">
+			<div class="message-head">
+				<span>Mensagem:</span>
+				<button class="copy-btn" type="button" data-copy-target="secret-message">▣ Copiar</button>
+			</div>
+			<div class="secret-message" id="secret-message">{{ extracted_message }}</div>
+		</div>
+	{% endif %}
+
+	<div class="metadata">
+		<div>
+			<span class="meta-icon"></span>
+			<div>
+				<small>Imagem usada:</small>
+				<strong>{{ original_name }}</strong>
+			</div>
+		</div>
+		<div>
+			<span class="meta-icon"></span>
+			<div>
+				<small>Chave utilizada:</small>
+				<strong>{{ key_mask }}</strong>
+			</div>
+		</div>
+		<div>
+			<span class="meta-icon"></span>
+			<div>
+				<small>Data e hora:</small>
+				<strong>{{ created_at }}</strong>
+			</div>
+		</div>
+	</div>
+	<a class="btn btn-primary center-btn" href="{{ url_for('index') }}"> Voltar ao início </a>
+</section>
+{% endblock %}

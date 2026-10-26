@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Erro | SecretImage 2.0{% endblock %}
+{% block content %}
+<section class="result-card error-card">
+	<div class="result-symbol danger">×</div>
+		<h1>{{ title }}</h1>
+		<p>{{ message }}</p>
+		<div class="causes">
+			<strong>Possíveis causas:</strong>
+			<ul>{% for cause in causes %}
+				<li>{{ cause }}</li>
+				{% endfor %}</ul>
+		</div>
+	<div class="result-actions">
+		<a class="btn btn-primary" href="{{ url_for('extract_page') }}"> Tentar novamente </a>
+		<a class="btn btn-outline" href="{{ url_for('index') }}"> Voltar ao início </a>
+	</div>
+</section>
+{% endblock %}

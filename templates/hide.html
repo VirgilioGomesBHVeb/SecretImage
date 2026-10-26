@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Esconder mensagem ou ficheiro | SecretImage 2.0{% endblock %}
+{% block content %}
+<section class="page-heading">
+  <div class="heading-icon"></div>
+  <div>
+    <h1>Esconder conteúdo</h1>
+    <p>Seleccione uma imagem, insira uma mensagem ou anexe um ficheiro (vídeo, áudio, PDF, etc. até 400 MB).</p>
+  </div>
+</section>
+
+<section class="form-card">
+<form action="{{ url_for('hide') }}" method="post" enctype="multipart/form-data" id="hide-form">
+  <div class="form-grid">
+    <div class="image-column">
+      <label>Imagem (hospedeira)</label>
+      <label class="dropzone" id="hide-dropzone">
+        <input type="file" name="image" id="hide-image" accept=".jpg,.jpeg,.png,.bmp" required>
+        <div class="drop-icon"></div>
+        <strong>Clique para escolher uma imagem</strong>
+        <span>ou arraste e solte aqui</span>
+        <div class="preview-wrap" id="hide-preview-wrap"><img id="hide-preview" alt="Pré-visualização"></div>
+      </label>
+      <small>Formatos aceites: JPG, PNG, JPEG, BMP</small>
+    </div>
+
+    <div class="fields-column">
+      <label for="secret_file">Ficheiro Secreto (Vídeo, Áudio, PDF, DOCX, XLSX até 400 MB):</label>
+      <input type="file" id="secret_file" name="secret_file" style="margin-bottom: 12px; width: 100%;">
+
+      <label for="message">Ou digite uma mensagem de texto:</label>
+      <textarea id="message" name="message" maxlength="200000" placeholder="Caso não queira enviar um ficheiro, escreva aqui a mensagem..."></textarea>
+      
+      <label for="password">Chave</label>
+      <div class="password-field">
+        <input id="password" name="password" type="password" minlength="8" autocomplete="new-password" placeholder="Digite a chave secreta..." required>
+        <button type="button" class="eye" data-toggle="password">◉</button>
+      </div>
+
+      <label for="confirm_password">Confirmar chave</label>
+      <div class="password-field">
+        <input id="confirm_password" name="confirm_password" type="password" minlength="8" autocomplete="new-password" placeholder="Confirme a chave secreta..." required>
+        <button type="button" class="eye" data-toggle="confirm_password">◉</button>
+      </div>
+
+      <button class="btn btn-primary full" type="submit"><span></span> Proteger e esconder</button>
+    </div>
+  </div>
+</form>
+</section>
+{% endblock %}

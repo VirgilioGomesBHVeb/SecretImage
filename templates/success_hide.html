@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Mensagem protegida | SecretImage 2.0{% endblock %}
+{% block content %}
+<section class="result-card success-card">
+  <div class="result-symbol success">✓</div>
+  <h1>Mensagem protegida com sucesso!</h1>
+  <p>A sua mensagem foi cifrada e escondida na imagem.</p>
+  <div class="file-row"><div class="file-icon"></div><div><span>Imagem gerada:</span><strong>{{ filename }}</strong></div></div>
+  <div class="result-actions"><a class="btn btn-success" href="{{ url_for('download_file', filename=filename) }}">⇩ Baixar imagem protegida</a><a class="btn btn-outline" href="{{ url_for('index') }}"> Voltar ao início </a></div>
+</section>
+{% endblock %}

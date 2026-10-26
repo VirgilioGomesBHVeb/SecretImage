@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Sobre | SecretImage 2.0{% endblock %}
+{% block content %}
+<section class="simple-page">
+	<div class="page-heading">
+		<div class="heading-icon"></div>
+		<div>
+			<h1>Sobre o SecretImage 2.0</h1>
+			<p>Uma plataforma académica de criptografia e esteganografia.</p>
+		</div>
+	</div>
+	<div class="info-card">
+		<h2>O que é?</h2>
+		<p>O SecretImage 2.0 protege uma mensagem com uma chave e depois esconde o conteúdo cifrado dentro de uma imagem através de esteganografia LSB.</p>
+		<div class="about-grid">
+			<div>
+				<b>Python + Flask</b>
+				<span>Servidor e lógica da aplicação.</span>
+			</div>
+			<div>
+				<b>Cryptography / Fernet</b>
+				<span>Protecção da mensagem.</span>
+				</div>
+					<div>
+						<b>Pillow + LSB</b>
+						<span>Processamento e esteganografia da imagem.</span>
+					</div>
+				<div>
+					<b>HTML + CSS + JavaScript</b>
+					<span>Interface e interacções.</span>
+				</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Extrair mensagem | SecretImage 2.0{% endblock %}
+{% block content %}
+<section class="page-heading"><div class="heading-icon"></div><div><h1>Extrair mensagem</h1><p>Seleccione uma imagem protegida e insira a chave correcta para recuperar a mensagem.</p></div></section>
+<section class="form-card">
+<form action="{{ url_for('extract') }}" method="post" enctype="multipart/form-data" id="extract-form">
+  <div class="extract-grid">
+    <div>
+      <label>Imagem protegida</label>
+      <label class="dropzone" id="extract-dropzone">
+        <input type="file" name="extract_image" id="extract-image" accept=".jpg,.jpeg,.png,.bmp" required>
+        <div class="drop-icon"></div><strong>Clique para escolher uma imagem</strong><span>ou arraste e solte aqui</span>
+        <div class="preview-wrap" id="extract-preview-wrap"><img id="extract-preview" alt="Pré-visualização"></div>
+      </label>
+      <small>Formatos aceites: JPG, PNG, JPEG, BMP</small>
+    </div>
+    <div class="extract-fields">
+      <label for="extract-password">Chave</label>
+      <div class="password-field"><input id="extract-password" name="password" type="password" autocomplete="current-password" placeholder="Digite a chave secreta..." required><button type="button" class="eye" data-toggle="extract-password">◉</button></div>
+      <button class="btn btn-primary full extract-button" type="submit"><span></span> Extrair e desencriptar</button>
+      <div class="mini-note"><span>🔐</span><p>A mensagem só será apresentada se a chave estiver correcta e os dados da imagem forem válidos.</p></div>
+    </div>
+  </div>
+</form>
+</section>
+{% endblock %}
